@@ -46,7 +46,7 @@ var Menu = function(opts) {
 				opts.tpl.replace(/##title##/g, opts.data[i].title)
 								.replace(/##id##/g, opts.data[i].title.isHTML()? i: opts.data[i].title.toLowerCase())
 								.replace(/##type##/g, opts.data[i].type? opts.data[i].type: "")
-								.replace(/##urls##/g, opts.data[i].urls? opts.data[i].urls.join("@@"): "")
+								.replace(/##urls##/g, opts.data[i].urls? encodeURIComponent(JSON.stringify(opts.data[i].urls)): "")
 			);
 		}
 	};

@@ -98,7 +98,3 @@ if (!Date.prototype.getWeek) {
 		return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
 	};
 }
-
-var get_rand_id = function() {
-	return Math.floor((Math.random() * 1000000) + 1);
-}

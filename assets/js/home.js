@@ -161,15 +161,16 @@ var Home = function(opts) {
 					var activeElem = $(".slider-item.active [data-view-type].active");
 					if(activeElem.length) {
 						$homeSliderElem.removeClass("active");
-
+						
+						var urls = $.parseJSON(decodeURIComponent(activeElem.data("ajax-url")));
 						switch(activeElem.data("view-type")) {
 							case "grid":
-								$.gridView.sel_view(activeElem.data("ajax-url").split("@@")[0]).init();
+								$.gridView.sel_view(urls[0]).init();
 								break;
 							case "slider":
 								$.sliderView.sel_view({
 									title : activeElem.data("title"),
-									urls  : activeElem.data("ajax-url").split("@@")
+									urls  : urls
 								}).init();
 								break;
 						}

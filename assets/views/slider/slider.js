@@ -25,7 +25,7 @@ var SliderView = function(opts) {
 				<div class=\"slider-view-bg\"></div>\
 			",
 			item: "\
-				<div class=\"slider-item\">\
+				<div class=\"slider-item\" data-slider-type=\"##type##\">\
 					<h2 class=\"slider-title\">##title##</h2>\
 					<div class=\"slider-wrap\">\
 						<div class=\"slider-count\"><span class=\"current\">0</span>de<span class=\"total\">0</span></div>\
@@ -81,17 +81,26 @@ var SliderView = function(opts) {
 		var $this = this,
 			opts = $this.opts;
 
-		if(!opts.title || opts.title != selSlider.title) {
+		if(opts.title != selSlider.title) {
 			var wrap = opts.wrap;
-			wrap.find(".header-title .title").text(selSlider.title);
+
 			wrap.find(".slider-items").html("");
+			this.loadNum = 0;
+			this.opts.activeSlider = 0;      // start slider in first time
+			this.opts.urls = [];             // ajax urls
+			this.opts.sliders = [];          // slider class object
+			this.opts.slidersType = [];      // slider type, ex: series, movies
+			this.opts.slidersData = [];      // slider data
+			this.opts.activeSliderItem = []; // active item index in each sliders
+			this.opts.sliderHeight = [];     // active item index in each sliders
 
 			this.opts.title = selSlider.title;
-			this.opts.urls = selSlider.urls;
-			this.opts.sliders = [];     // slider class object
-			this.opts.slidersData = []; // slider data
-			this.opts.activeSlider = 0;      // start slider in first time
-			this.opts.activeSliderItem = []; // active item index in each sliders
+			wrap.find(".header-title .title").text(this.opts.title);
+			
+			for(var i in selSlider.urls) {
+				this.opts.urls.push(selSlider.urls[i].url);
+				this.opts.slidersType.push(selSlider.urls[i].type);
+			}
 
 			$this.load_sliders();
 		}
@@ -150,6 +159,7 @@ var SliderView = function(opts) {
 						successCallback();
 					}
 				}
+				return;
 			})
 			.catch(function (error) {
 				$this.ajax_preloader(false);
@@ -193,28 +203,30 @@ var SliderView = function(opts) {
 			parsedData = [],
 			newSliderIndex = $this.opts.slidersData.length;
 
+		// make items array for slider view from response data its got from API by ajax calling.
+		//console.log(itemsData.Contenidos);
+
 		// add new slider data
 		this.opts.slidersData[newSliderIndex] = {
-			title: slidersData[newSliderIndex].title,
-			count: slidersData[newSliderIndex].count,
+			title: slidersData[0].title,
+			type : $this.opts.slidersType[newSliderIndex],
+			count: slidersData[0].count,
 			data : []
 		}
 
-		// make items array for slider view from response data its got from API by ajax calling.
-		//console.log(itemsData.Contenidos);
 		for(var i in itemsData.Contenidos) {
 			this.opts.slidersData[newSliderIndex].data.push({
 				id        : itemsData.Contenidos[i].DatosEditoriales.Id,
 				kind      : itemsData.Contenidos[i].DatosEditoriales.GeneroComAntena,
 				title     : itemsData.Contenidos[i].DatosEditoriales.Titulo,
 				date      : itemsData.Contenidos[i].DatosAccesoAnonimo.FechaFinPublicacion,
-				timeStart : slidersData[0].data[i].time.start,
-				timeEnd   : slidersData[0].data[i].time.end,
+				timeStart : slidersData[0].data[0].time.start,
+				timeEnd   : slidersData[0].data[0].time.end,
 				thumb     : itemsData.Contenidos[i].DatosEditoriales.Imagen,
 				bg        : itemsData.Contenidos[i].DatosEditoriales.Imagen,
 				rating    : itemsData.Contenidos[i].DatosEditoriales.Temporada,
 				indicator : itemsData.Contenidos[i].DatosAccesoAnonimo.IndicadorSubtitulosSordos,
-				issue     : slidersData[0].data[i].issue
+				issue     : slidersData[0].data[0].issue
 			});
 		}
 
@@ -229,7 +241,10 @@ var SliderView = function(opts) {
 			itemsWrap = opts.wrap.find(".slider-items");
 
 		for(var i in opts.slidersData) {
-			var $slider = $(opts.tpl.item.replace(/##title##/g, opts.slidersData[i].title)).appendTo(itemsWrap);
+			var $slider = jQuery(opts.tpl.item
+														.replace(/##type##/g, opts.slidersData[i].type)
+														.replace(/##title##/g, opts.slidersData[i].title)
+													).appendTo(itemsWrap);
 
 			if(!opts.slidersData[i].title) {
 				$slider.find(".slider-title").remove();
@@ -242,6 +257,7 @@ var SliderView = function(opts) {
 			opts.slidersData[i].wrap = $slider.children(".slider-wrap");
 			opts.sliders[i] = new Slider(opts.slidersData[i]);
 			opts.activeSliderItem[i] = 0;
+			opts.sliderHeight[i] = itemsWrap.find(".slider-item").eq(i).outerHeight();
 		}
 
 		// start first slider
@@ -252,10 +268,12 @@ var SliderView = function(opts) {
 	 * Active slider
 	 */
 	this.active_slider = function($sliderIndex) {
-		var $wrap = this.opts.wrap,
-			$sliders = this.opts.sliders,
-			$activeSlider = this.opts.activeSlider,
-			$activeItem = this.opts.activeSliderItem,
+		var $this = this,
+			opts = $this.opts,
+			$wrap = opts.wrap,
+			$sliders = opts.sliders,
+			$activeSlider = opts.activeSlider,
+			$activeItem = opts.activeSliderItem,
 			$sliderWrap = $wrap.children(".slider-items-wrap").children(".slider-items"),
 			$sliderElem = $wrap.find(".slider-item");
 
@@ -274,8 +292,8 @@ var SliderView = function(opts) {
 
 			var moveTop = 0;
 			for(var i = 0; i < $sliderIndex; i++) {
-				moveTop += 351; // $sliderElem.eq(i).outerHeight()
-				$sliderElem.eq(i).addClass("unvisible");console.log($sliderElem.eq(i).outerHeight())
+				moveTop += opts.sliderHeight[i];
+				$sliderElem.eq(i).addClass("unvisible");
 			}
 
 			$sliderWrap.css({transform: "translateY(-" + moveTop + "px)"});
@@ -465,13 +483,13 @@ var Slider = function(opts) {
 		}, 300);
 
 		// body background image
-		$(".slider-view-bg").removeClass("active").css("background-image", "url(" + opts.data[index].bg + ")");	
+		jQuery(".slider-view-bg").removeClass("active").css("background-image", "url(" + opts.data[index].bg + ")");	
 		if(typeof(opts.bgtimer) == "undefined") {
 			clearTimeout(opts.bgtimer);
 		}
 
 		this.opts.bgtimer = setTimeout(function() {	
-			$(".slider-view-bg").addClass("active");
+			jQuery(".slider-view-bg").addClass("active");
 		}, 100);
 
 		// count
@@ -522,7 +540,7 @@ var Slider = function(opts) {
 		if(!this.opts.items.find(".item.active").length) {
 			this.sel_item(index);
 		}
-		$(".slider-view-bg").fadeIn(150);
+		jQuery(".slider-view-bg").fadeIn(150);
 	};
 
 	/*
@@ -532,7 +550,7 @@ var Slider = function(opts) {
 		this.opts.wrap.removeClass("active");
 		this.opts.wrap.find(".item.active").removeClass("active");
 		this.opts.wrap.find(".items-desc").removeClass("active");
-		$(".slider-view-bg").fadeOut(150);
+		jQuery(".slider-view-bg").fadeOut(150);
 	};
 
 	/*
