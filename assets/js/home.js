@@ -133,7 +133,7 @@ var Home = function(opts) {
 		});
 
 		// go to selected section
-		$homeSliderElem.on("click", ".slider-item", function() {
+		$homeSliderElem.on("click", ".slider-item", function(e) {
 			if(!$(this).hasClass("active")){
 				$.home.active_slider($(this).index());
 			}
