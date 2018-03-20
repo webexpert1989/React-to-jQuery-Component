@@ -1,0 +1,203 @@
+/*****************************
+* Movies
+*/
+
+
+.slider-wrap[data-slider="movies"] {
+	position: relative;
+	z-index: 9;
+	padding: 0 100px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.slider-wrap[data-slider="movies"] .slider-count {
+	position: absolute;
+	top: 0;
+	right: 100px;
+	text-align: right;
+	font-size: 1.875rem;
+	font-weight: 200;
+	letter-spacing: .83px;
+}
+.slider-wrap[data-slider="movies"] .slider-count .current {
+	margin-right: .2em;
+	font-weight: 500;
+}
+.slider-wrap[data-slider="movies"] .slider-count .total {
+	margin-left: .2em;
+	font-weight: 500;
+}
+
+.slider-wrap[data-slider="movies"] .items {
+	white-space: nowrap;
+
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.slider-wrap[data-slider="movies"] .items .item {
+	display: inline-block;
+	vertical-align: middle;
+	opacity: 1;
+}
+
+.slider-wrap[data-slider="movies"] .items .item.active {
+	padding-right: 720px;
+	opacity: 0;
+	-webkit-animation: fadein .3s forwards .3s;
+	-moz-animation: fadein .3s forwards .3s;
+	-o-animation: fadein .3s forwards .3s;
+	animation: fadein .3s forwards .3s;
+}
+
+.slider-wrap[data-slider="movies"] .items .item .item-wrap {
+	position: relative;
+	border: 5px solid transparent;
+
+}
+
+.slider-wrap[data-slider="movies"] .items .item.active .item-wrap {
+	border-color: #00a9e0;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.slider-wrap[data-slider="movies"] .items .item .item-wrap .img-wrap {
+	position: relative;
+	width: 208px;
+	height: 312px;
+	overflow: hidden;
+	background-color: rgba(0,0,0,.8);
+	background-clip: content-box;
+}
+
+.slider-wrap[data-slider="movies"] .items .item.active .item-wrap .img-wrap {
+	width: 276px;
+	height: 414px;
+}
+
+.slider-wrap[data-slider="movies"] .items .item .item-wrap img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.slider-wrap[data-slider="movies"] .items .item.item-all .item-wrap img {
+	top: 50%;
+	left: 50%;
+	width: auto;
+	height: auto;
+
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.slider-wrap[data-slider="movies"] .items-desc {
+	position: absolute;
+	top: 88px;
+	left: 417px;
+	width: 650px;
+	opacity: 0;
+}
+
+.slider-wrap[data-slider="movies"] .items-desc.active {
+	-webkit-animation: fadein .3s forwards;
+	-moz-animation: fadein .3s forwards;
+	-o-animation: fadein .3s forwards;
+	animation: fadein .3s forwards;
+}
+
+.slider-wrap[data-slider="movies"] .desc-item.item-all {
+	margin-top: 60px;
+}
+
+.slider-wrap[data-slider="movies"] .desc-item .item-title {
+	margin: 0;
+	line-height: 1.2;
+	font-weight: 200;
+	font-size: 3.625rem;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.slider-wrap[data-slider="movies"] .desc-item.item-all .item-title {
+	color: #00a9e0;
+}
+
+.slider-wrap[data-slider="movies"] .desc-item .item-info {
+	font-size: 1.875rem;
+	font-weight: 200;
+	padding-bottom: 15px;
+}
+
+.slider-wrap[data-slider="movies"] .desc-item.item-all .item-info {
+	display: none;
+}
+
+
+.slider-wrap[data-slider="movies"] .desc-item .item-info .item-info-elem {
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 24px;
+	position: relative;
+}
+
+.slider-wrap[data-slider="movies"] .desc-item .item-info .item-info-elem:after {
+	content: "|";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 7px;
+}
+
+.slider-wrap[data-slider="movies"] .desc-item .item-info .item-info-elem:last-child:after {
+	content: none;
+}
+
+.slider-wrap[data-slider="movies"] .desc-item .item-description {
+	font-size: 28px;
+	font-size: 1.75rem;
+	font-weight: 200;
+	letter-spacing: 1.12px;
+	margin: 0;
+	line-height: 1.3;
+}
+
+
+.slider-wrap[data-slider="movies"] .desc-item.item-all .item-description {
+	display: none;
+}
+
+/* body bg */
+.slider-wrap[data-slider="movies"]-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0;
+}
+
+.slider-wrap[data-slider="movies"]-bg.active {
+	opacity: 1;
+	-webkit-animation: fadein .3s forwards;
+	-moz-animation: fadein .3s forwards;
+	-o-animation: fadein .3s forwards;
+	animation: fadein .3s forwards;
+}

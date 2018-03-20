@@ -1,0 +1,275 @@
+/*****************************
+* Series
+*/
+
+
+.slider-wrap[data-slider="series"] {
+	position: relative;
+	z-index: 9;
+	padding: 0 100px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.slider-wrap[data-slider="series"] .slider-count {
+	position: absolute;
+	top: 0;
+	right: 100px;
+	text-align: right;
+	font-size: 1.875rem;
+	font-weight: 200;
+	letter-spacing: .83px;
+}
+.slider-wrap[data-slider="series"] .slider-count .current {
+	margin-right: .2em;
+	font-weight: 500;
+}
+.slider-wrap[data-slider="series"] .slider-count .total {
+	margin-left: .2em;
+	font-weight: 500;
+}
+
+.slider-wrap[data-slider="series"] .items {
+	white-space: nowrap;
+
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.slider-wrap[data-slider="series"] .items .item {
+	display: inline-block;
+	vertical-align: middle;
+	opacity: 1;
+}
+
+.slider-wrap[data-slider="series"] .items .item.active {
+	padding-right: 720px;
+	opacity: 0;
+	-webkit-animation: fadein .3s forwards .3s;
+	-moz-animation: fadein .3s forwards .3s;
+	-o-animation: fadein .3s forwards .3s;
+	animation: fadein .3s forwards .3s;
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap {
+	position: relative;
+	border: 5px solid transparent;
+
+}
+
+.slider-wrap[data-slider="series"] .items .item.active .item-wrap {
+	border-color: #00a9e0;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap .img-wrap {
+	position: relative;
+	width: 300px;
+	height: 225px;
+	overflow: hidden;
+	background-color: rgba(0,0,0,.8);
+	background-clip: content-box;
+}
+
+.slider-wrap[data-slider="series"] .items .item.active .item-wrap .img-wrap {
+	width: 468px;
+	height: 352px;
+
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.slider-wrap[data-slider="series"] .items .item.item-all .item-wrap img {
+	top: 50%;
+	left: 50%;
+	width: auto;
+	height: auto;
+
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap .item-indicator {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 75px;
+	height: 75px;
+}
+.slider-wrap[data-slider="series"] .items .item.item-all .item-wrap .item-indicator {
+	display: none;
+}
+.slider-wrap[data-slider="series"] .items .item.active .item-wrap .item-indicator {
+	top: -5px;
+	right: -5px;
+	width: 115px;
+	height: 115px;
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap .item-indicator img {
+	width: 100%;
+	height: 100%;
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap .progress-bar {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.slider-wrap[data-slider="series"] .items .item.item-all .item-wrap .progress-bar {
+	display: none;
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap .progress-bar .progress-bar-back {
+	position: relative;
+	margin: 10px;
+	height: 6px;
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap .progress-bar .progress-bar-back {
+	position: relative;
+	margin: 10px;
+	height: 8px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.36);
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.slider-wrap[data-slider="series"] .items .item .item-wrap .progress-bar .progress-bar-back .progress-bar-progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background-color: #fff;
+
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-transition: background-color .3s ease;
+	-moz-transition: background-color .3s ease;
+	-o-transition: background-color .3s ease;
+	transition: background-color .3s ease;
+}
+
+.slider-wrap[data-slider="series"] .items .item.active .item-wrap .progress-bar .progress-bar-back .progress-bar-progress {
+	background-color: #00a9e0;
+}
+
+.slider-wrap[data-slider="series"] .items-desc {
+	position: absolute;
+	top: 70px;
+	left: 612px;
+	width: 650px;
+	opacity: 0;
+}
+
+.slider-wrap[data-slider="series"] .items-desc.active {
+	-webkit-animation: fadein .3s forwards;
+	-moz-animation: fadein .3s forwards;
+	-o-animation: fadein .3s forwards;
+	animation: fadein .3s forwards;
+}
+
+.slider-wrap[data-slider="series"] .desc-item.item-all {
+	margin-top: 60px;
+}
+
+.slider-wrap[data-slider="series"] .desc-item .item-title {
+	margin: 0;
+	line-height: 1.2;
+	font-weight: 200;
+	font-size: 3.625rem;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.slider-wrap[data-slider="series"] .desc-item.item-all .item-title {
+	color: #00a9e0;
+}
+
+.slider-wrap[data-slider="series"] .desc-item .item-info {
+	font-size: 1.875rem;
+	font-weight: 200;
+	padding-bottom: 15px;
+}
+
+.slider-wrap[data-slider="series"] .desc-item.item-all .item-info {
+	display: none;
+}
+
+
+.slider-wrap[data-slider="series"] .desc-item .item-info .item-info-elem {
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 24px;
+	position: relative;
+}
+
+.slider-wrap[data-slider="series"] .desc-item .item-info .item-info-elem:after {
+	content: "|";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 7px;
+}
+
+.slider-wrap[data-slider="series"] .desc-item .item-info .item-info-elem:last-child:after {
+	content: none;
+}
+
+.slider-wrap[data-slider="series"] .desc-item .item-description {
+	font-size: 28px;
+	font-size: 1.75rem;
+	font-weight: 200;
+	letter-spacing: 1.12px;
+	margin: 0;
+	line-height: 1.3;
+}
+
+
+.slider-wrap[data-slider="series"] .desc-item.item-all .item-description {
+	display: none;
+}
+
+/* body bg */
+.slider-body-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0;
+}
+
+.slider-body-bg.active {
+	opacity: 1;
+	-webkit-animation: fadein .3s forwards;
+	-moz-animation: fadein .3s forwards;
+	-o-animation: fadein .3s forwards;
+	animation: fadein .3s forwards;
+}

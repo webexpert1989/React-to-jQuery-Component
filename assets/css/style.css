@@ -1,0 +1,314 @@
+html {
+	width                    : 1920px;
+	height                   : 1080px;
+
+	-webkit-transform-origin : top left;
+	-ms-transform-origin     : top left;
+	transform-origin         : top left;
+}
+
+body, html {
+	margin                  : 0;
+	padding                 : 0;
+	background-color        : #000;
+	overflow                : hidden;
+
+	-webkit-font-smoothing  : antialiased;
+	-moz-osx-font-smoothing : grayscale;
+	font-size               : 100%;
+	background-color        : #232323;
+	color                   : #fff;
+	font-family             : Helvetica Neue, Arial, sans-serif;
+	line-height             : normal;
+	box-sizing              : border-box;
+
+	background-image        : -webkit-radial-gradient(101% 83%, #000 0, #272626 5%, #090909 65%, #232323 100%);
+	background-image        : -o-radial-gradient(101% 83%, #000 0, #272626 5%, #090909 65%, #232323 100%);
+	background-image        : radial-gradient(101% 83%, #000 0, #272626 5%, #090909 65%, #232323 100%);
+}
+
+body *, html * {
+	outline            : inherit !important;
+	word-break         : break-word;
+	-webkit-box-sizing : border-box;
+	-moz-box-sizing    : border-box;
+	-o-box-sizing      : border-box;
+	box-sizing         : border-box;
+}
+
+.wrap {
+	position : fixed;
+	top      : 0;
+	left     : 0;
+	z-index  : 1;
+	width    : 100%;
+	height   : 100%;
+	overflow : hidden;
+}
+
+.wrap:before {
+	content          : "";
+	position         : fixed;
+	top              : 40%;
+	left             : 0;
+	bottom           : 0;
+	z-index          : 1;
+	width            : 100%;
+	background-color : rgba(0, 0, 0, .6);
+}
+
+.sliders {
+	position           : relative;
+	top                : 40%;
+	z-index            : 2;
+
+	-webkit-transition : transform .3s;
+	-moz-transition    : transform .3s;
+	-o-transition      : transform .3s;
+	transition         : transform .3s;
+}
+
+.slider-item {
+	position           : relative;
+	z-index            : 9;
+	padding            : 30px 0;
+	width              : 100%;
+	opacity            : 0.6;
+
+	-webkit-transition : all .3s;
+	-moz-transition    : all .3s;
+	-o-transition      : all .3s;
+	transition         : all .3s;
+}
+
+.slider-item.unvisible {
+	opacity : 0;
+}
+
+.slider-item.active {
+	opacity   : 1;
+	transform : scale(1);
+}
+
+.slider-item .slider-title {
+	margin             : 0 100px 20px 100px;
+	font-weight        : 200;
+	line-height        : 1.15;
+	font-size          : 2rem;
+
+	-webkit-transition : all .3s;
+	-moz-transition    : all .3s;
+	-o-transition      : all .3s;
+	transition         : all .3s;
+}
+
+.slider-item.active .slider-title {
+	font-size : 2.5rem;
+}
+
+/* Views */
+.grid-view-wrap,
+.slider-view-wrap {
+	position         : absolute;
+	top              : 0;
+	left             : 0;
+	z-index          : 9;
+	display          : none;
+	width            : 100%;
+	height           : calc(100% + 1px);
+	background-color : #000;
+	overflow         : hidden;
+	opacity          : 0;
+}
+
+.sliders.active,
+.grid-view-wrap.active,
+.slider-view-wrap.active {
+	display           : block;
+
+	-webkit-animation : fadein .3s forwards;
+	-moz-animation    : fadein .3s forwards;
+	-o-animation      : fadein .3s forwards;
+	animation         : fadein .3s forwards;
+}
+
+/* Spin Loading */
+.ajax-preloader {
+	margin   : 30px auto;
+	width    : 80px;
+	height   : 80px;
+	overflow : hidden;
+	opacity  : 0;
+
+	-webkit-animation : fadein .3s forwards;
+	-moz-animation    : fadein .3s forwards;
+	-o-animation      : fadein .3s forwards;
+	animation         : fadein .3s forwards;
+}
+
+.uil-spin-css {
+	background               : none;
+	position                 : relative;
+	width                    : 200px;
+	height                   : 200px;
+	-webkit-transform        : scale(0.4);
+	-moz-transform           : scale(0.4);
+	transform                : scale(0.4);
+	-webkit-transform-origin : top left;
+	-moz-transform-origin    : top left;
+	transform-origin         : top left;
+}
+
+.uil-spin-css > div {
+	position    : absolute;
+	margin-top  : 6px;
+	margin-left : 6px;
+	width       : 20px;
+	height      : 20px;
+}
+
+.uil-spin-css > div > div {
+	width             : 100%;
+	height            : 100%;
+	border-radius     : 100px;
+	background-color  : #00a9e0;
+
+	-webkit-animation : uil-spin-css 1s linear infinite;
+	-moz-animation    : uil-spin-css 1s linear infinite;
+	-o-animation      : uil-spin-css 1s linear infinite;
+	animation         : uil-spin-css 1s linear infinite;
+}
+
+.uil-spin-css > div:nth-of-type(1) > div {
+	-webkit-animation-delay : -0.87s;
+	animation-delay         : -0.87s;
+}
+
+.uil-spin-css > div:nth-of-type(1) {
+	-webkit-transform : translate(84px, 84px) rotate(45deg) translate(70px, 0);
+	transform         : translate(84px, 84px) rotate(45deg) translate(70px, 0);
+}
+
+.uil-spin-css > div:nth-of-type(2) > div {
+	-webkit-animation-delay : -0.75s;
+	animation-delay         : -0.75s;
+}
+
+.uil-spin-css > div:nth-of-type(2) {
+	-webkit-transform : translate(84px, 84px) rotate(90deg) translate(70px, 0);
+	transform         : translate(84px, 84px) rotate(90deg) translate(70px, 0);
+}
+
+.uil-spin-css > div:nth-of-type(3) > div {
+	-webkit-animation-delay : -0.62s;
+	animation-delay         : -0.62s;
+}
+
+.uil-spin-css > div:nth-of-type(3) {
+	-webkit-transform : translate(84px, 84px) rotate(135deg) translate(70px, 0);
+	transform         : translate(84px, 84px) rotate(135deg) translate(70px, 0);
+}
+
+.uil-spin-css > div:nth-of-type(4) > div {
+	-webkit-animation-delay : -0.5s;
+	animation-delay         : -0.5s;
+}
+
+.uil-spin-css > div:nth-of-type(4) {
+	-webkit-transform : translate(84px, 84px) rotate(180deg) translate(70px, 0);
+	transform         : translate(84px, 84px) rotate(180deg) translate(70px, 0);
+}
+
+.uil-spin-css > div:nth-of-type(5) > div {
+	-webkit-animation-delay : -0.37s;
+	animation-delay         : -0.37s;
+}
+
+.uil-spin-css > div:nth-of-type(5) {
+	-webkit-transform : translate(84px, 84px) rotate(225deg) translate(70px, 0);
+	transform         : translate(84px, 84px) rotate(225deg) translate(70px, 0);
+}
+
+.uil-spin-css > div:nth-of-type(6) > div {
+	-webkit-animation-delay : -0.25s;
+	animation-delay         : -0.25s;
+}
+
+.uil-spin-css > div:nth-of-type(6) {
+	-webkit-transform : translate(84px, 84px) rotate(270deg) translate(70px, 0);
+	transform         : translate(84px, 84px) rotate(270deg) translate(70px, 0);
+}
+
+.uil-spin-css > div:nth-of-type(7) > div {
+	-webkit-animation-delay : -0.12s;
+	animation-delay         : -0.12s;
+}
+
+.uil-spin-css > div:nth-of-type(7) {
+	-webkit-transform : translate(84px, 84px) rotate(315deg) translate(70px, 0);
+	transform         : translate(84px, 84px) rotate(315deg) translate(70px, 0);
+}
+
+.uil-spin-css > div:nth-of-type(8) > div {
+	-webkit-animation-delay : -0s;
+	animation-delay         : -0s;
+}
+
+.uil-spin-css > div:nth-of-type(8) {
+	-webkit-transform : translate(84px, 84px) rotate(360deg) translate(70px, 0);
+	transform         : translate(84px, 84px) rotate(360deg) translate(70px, 0);
+}
+
+@-webkit-keyframes uil-spin-css {
+	0% {
+		opacity           : 1;
+		-webkit-transform : scale(1.5);
+		transform         : scale(1.5);
+	}
+
+	100% {
+		opacity           : 0.1;
+		-webkit-transform : scale(1);
+		transform         : scale(1);
+	}
+}
+
+@-moz-keyframes uil-spin-css {
+	0% {
+		opacity        : 1;
+		-moz-transform : scale(1.5);
+		transform      : scale(1.5);
+	}
+
+	100% {
+		opacity        : 0.1;
+		-moz-transform : scale(1);
+		transform      : scale(1);
+	}
+}
+
+@-o-keyframes uil-spin-css {
+	0% {
+		opacity      : 1;
+		-o-transform : scale(1.5);
+		transform    : scale(1.5);
+	}
+
+	100% {
+		opacity      : 0.1;
+		-o-transform : scale(1);
+		transform    : scale(1);
+	}
+}
+
+@keyframes uil-spin-css {
+	0% {
+		opacity   : 1;
+		transform : scale(1.5);
+	}
+
+	100% {
+		opacity   : 0.1;
+		transform : scale(1);
+	}
+}

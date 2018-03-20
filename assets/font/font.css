@@ -1,0 +1,81 @@
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue-Light.woff2") format("woff2"), url("./HelveticaNeue-Light.woff") format("woff"), url("./HelveticaNeue-Light.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue-LightItalic.woff2") format("woff2"), url("./HelveticaNeue-LightItalic.woff") format("woff"), url("./HelveticaNeue-LightItalic.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 300;
+	font-style: italic;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue-Medium.woff2") format("woff2"), url("./HelveticaNeue-Medium.woff") format("woff"), url("./HelveticaNeue-Medium.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue-MediumItalic.woff2") format("woff2"), url("./HelveticaNeue-MediumItalic.woff") format("woff"), url("./HelveticaNeue-MediumItalic.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 500;
+	font-style: italic;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue-Thin.woff2") format("woff2"), url("./HelveticaNeue-Thin.woff") format("woff"), url("./HelveticaNeue-Thin.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 200;
+	font-style: normal;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue-ThinItalic.woff2") format("woff2"), url("./HelveticaNeue-ThinItalic.woff") format("woff"), url("./HelveticaNeue-ThinItalic.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 200;
+	font-style: italic;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue-UltraLight.woff2") format("woff2"), url("./HelveticaNeue-UltraLight.woff") format("woff"), url("./HelveticaNeue-UltraLight.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 100;
+	font-style: normal;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue-UltraLightItalic.woff2") format("woff2"), url("./HelveticaNeue-UltraLightItalic.woff") format("woff"), url("./HelveticaNeue-UltraLightItalic.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 100;
+	font-style: italic;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "Helvetica Neue";
+	src: url("./HelveticaNeue.woff2") format("woff2"), url("./HelveticaNeue.woff") format("woff"), url("./HelveticaNeue.ttf") format("truetype");
+	/* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5, Android 2.2+,	*/
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal; }
+
+@font-face {
+	font-family: "movistar-icons";
+	src: url("./movistar-icons.eot");
+	/* IE9 Compat Modes */
+	src: url("./movistar-icons.eot?#iefix") format("embedded-opentype"), url("./movistar-icons.woff") format("woff"), url("./movistar-icons.ttf") format("truetype"), url("./movistar-icons.svg#movistar-icons") format("svg");
+	/* Legacy iOS */
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal; }

@@ -1,0 +1,151 @@
+/*****************************
+* Actors
+*/
+
+
+.slider-wrap[data-slider="actors"] {
+	position: relative;
+	z-index: 9;
+	padding: 0 100px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.slider-wrap[data-slider="actors"] .slider-count {
+	position: absolute;
+	top: 0;
+	right: 100px;
+	text-align: right;
+	font-size: 1.875rem;
+	font-weight: 200;
+	letter-spacing: .83px;
+}
+.slider-wrap[data-slider="actors"] .slider-count .current {
+	margin-right: .2em;
+	font-weight: 500;
+}
+.slider-wrap[data-slider="actors"] .slider-count .total {
+	margin-left: .2em;
+	font-weight: 500;
+}
+
+.slider-wrap[data-slider="actors"] .items {
+	white-space: nowrap;
+
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.slider-wrap[data-slider="actors"] .items .item {
+	display: inline-block;
+	padding: 75px 0 52px 0;
+	vertical-align: middle;
+	opacity: 1;
+
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.slider-wrap[data-slider="actors"] .items .item.active {
+	padding: 0 370px 0 0;
+	opacity: 0;
+
+	-webkit-animation: fadein .3s forwards .3s;
+	-moz-animation: fadein .3s forwards .3s;
+	-o-animation: fadein .3s forwards .3s;
+	animation: fadein .3s forwards .3s;
+}
+
+.slider-wrap[data-slider="actors"] .items .item .item-photo {
+	position: relative;
+	width: 208px;
+	height: 208px;
+	border: 5px solid transparent;
+	background-color: rgba(0,0,0,.8);
+	background-clip: content-box;
+
+	-webkit-transition: width .3s, height .3s;
+	-moz-transition: width .3s, height .3s;
+	-o-transition: width .3s, height .3s;
+	transition: width .3s, height .3s;
+}
+
+.slider-wrap[data-slider="actors"] .items .item.active .item-photo {
+	height: 336px;
+	width: 336px;
+	border-color: #00a9e0;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.slider-wrap[data-slider="actors"] .items .item .item-photo img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.slider-wrap[data-slider="actors"] .items .item .item-name {
+	padding: 3px 0 7px;
+	width: 208px;
+	text-align: left;
+	font-size: 1.875rem;
+	letter-spacing: 1.29px;
+	font-weight: 200;
+
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	-webkit-transition: all .1s;
+	-moz-transition: all .1s;
+	-o-transition: all .1s;
+	transition: all .1s;
+}
+
+.slider-wrap[data-slider="actors"] .items .item.active .item-name {
+	padding: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.slider-wrap[data-slider="actors"] .items-desc-wrap {
+	position: absolute;
+	top: 83px;
+	left: 475px;
+	margin: 0;
+	width: 336px;
+	line-height: 1.15;
+	font-weight: 200;
+	opacity: 0;
+}
+.slider-wrap[data-slider="actors"] .items-desc-wrap h3 {
+	font-size: 3.25rem;
+	letter-spacing: .98px;
+	font-weight: 200;
+}
+.slider-wrap[data-slider="actors"] .items-desc-wrap.active {
+	-webkit-animation: fadein .3s forwards;
+	-moz-animation: fadein .3s forwards;
+	-o-animation: fadein .3s forwards;
+	animation: fadein .3s forwards;
+}
+
+.slider-wrap[data-slider="actors"] .items-desc .item-name {
+	margin: 0;
+	line-height: 1.2;
+	font-weight: 200;
+	font-size: 3.625rem;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	overflow: hidden;
+}

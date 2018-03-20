@@ -1,0 +1,51 @@
+/*****************************
+* Movies
+*/
+
+
+.slider-wrap[data-slider="movistar"] {
+	position: relative;
+	z-index: 9;
+	padding: 0 100px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.slider-wrap[data-slider="movistar"] .items {
+	white-space: nowrap;
+
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.slider-wrap[data-slider="movistar"] .items .item {
+	margin: 0 30px 0 0;
+	display: inline-block;
+	width: calc(50% - 30px);
+	vertical-align: middle;
+	opacity: 1;
+}
+.slider-wrap[data-slider="movistar"] .items .item:last-of-type {
+	margin: 0;
+}
+
+.slider-wrap[data-slider="movistar"] .items .item .item-wrap {
+	position: relative;
+	width: 100%;
+	border: 5px solid transparent;
+}
+
+.slider-wrap[data-slider="movistar"] .items .item.active .item-wrap {
+	border-color: #00a9e0;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.slider-wrap[data-slider="movistar"] .items .item .item-wrap img {
+	width: 100%;
+}

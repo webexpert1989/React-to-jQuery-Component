@@ -1,0 +1,77 @@
+/*****************************
+* Services
+*/
+
+
+.slider-wrap[data-slider="services"] {
+	position: relative;
+	padding: 0 100px;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.slider-wrap[data-slider="services"] .items {
+	height: 352px;
+	line-height: 352px;
+	white-space: nowrap;
+
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.slider-wrap[data-slider="services"] .items .item {
+	display: inline-block;
+	vertical-align: middle;
+	opacity: 1;
+}
+
+.slider-wrap[data-slider="services"] .items .item .item-wrap {
+	position: relative;
+	width: 300px;
+	height: 225px;
+	border: 5px solid transparent;
+	background-color: rgba(255, 255, 255, 0.118);
+
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+
+.slider-wrap[data-slider="services"] .items .item.active .item-wrap {
+	width: 468px;
+	height: 352px;
+	border-color: #00a9e0;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	transform: 
+}
+
+.slider-wrap[data-slider="services"] .items .item img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.slider-wrap[data-slider="services"] .slider-count {
+	position: absolute;
+	top: 0;
+	right: 100px;
+	text-align: right;
+	font-size: 1.875rem;
+	font-weight: 200;
+	letter-spacing: .83px;
+}
+.slider-wrap[data-slider="services"] .slider-count .current {
+	margin-right: .2em;
+	font-weight: 500;
+}
+.slider-wrap[data-slider="services"] .slider-count .total {
+	margin-left: .2em;
+	font-weight: 500;
+}
