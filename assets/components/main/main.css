@@ -26,19 +26,19 @@
 .slider-wrap[data-slider="main"]:before {
 	left: 70px;
 
-	-webkit-transform: translateY(-50%) rotate(-135deg);
-	-moz-transform: translateY(-50%) rotate(-135deg);
-	-o-transform: translateY(-50%) rotate(-135deg);
-	transform: translateY(-50%) rotate(-135deg);
+	-webkit-transform: translateY(calc(-50% - 25px)) rotate(-135deg);
+	-moz-transform: translateY(calc(-50% - 25px)) rotate(-135deg);
+	-o-transform: translateY(calc(-50% - 25px)) rotate(-135deg);
+	transform: translateY(calc(-50% - 25px)) rotate(-135deg);
 }
 
 .slider-wrap[data-slider="main"]:after {
 	right: 70px;
 
-	-webkit-transform: translateY(-50%) rotate(45deg);
-	-moz-transform: translateY(-50%) rotate(45deg);
-	-o-transform: translateY(-50%) rotate(45deg);
-	transform: translateY(-50%) rotate(45deg);
+	-webkit-transform: translateY(calc(-50% - 25px)) rotate(45deg);
+	-moz-transform: translateY(calc(-50% - 25px)) rotate(45deg);
+	-o-transform: translateY(calc(-50% - 25px)) rotate(45deg);
+	transform: translateY(calc(-50% - 25px)) rotate(45deg);
 }
 
 .slider-wrap[data-slider="main"] .dots {
