@@ -246,30 +246,6 @@
 	line-height: 1.3;
 }
 
-
 .slider-wrap[data-slider="series"] .desc-item.item-all .item-description {
 	display: none;
-}
-
-/* body bg */
-.slider-body-bg {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #000;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	opacity: 0;
-}
-
-.slider-body-bg.active {
-	opacity: 1;
-	-webkit-animation: fadein .3s forwards;
-	-moz-animation: fadein .3s forwards;
-	-o-animation: fadein .3s forwards;
-	animation: fadein .3s forwards;
 }

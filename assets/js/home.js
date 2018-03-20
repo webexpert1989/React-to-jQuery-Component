@@ -54,11 +54,12 @@ var Home = function(opts) {
 	 * Bind Slider
 	 */
 	this.bind_sliders = function() {
-		var opts = this.opts;
+		var opts = this.opts,
+			sliderWrap = jQuery("<div>").appendTo(opts.wrap).addClass("slider-items");
 
 		for(var i in opts.data) {
-			var $slider = $(opts.tpl.replace(/##type##/g, opts.data[i].type)
-													 		.replace(/##title##/g, opts.data[i].title)).appendTo(opts.wrap);
+			var $slider = jQuery(opts.tpl.replace(/##type##/g, opts.data[i].type)
+													 		.replace(/##title##/g, opts.data[i].title)).appendTo(sliderWrap);
 
 			if(!opts.data[i].title) {
 				$slider.find(".slider-title").remove();
@@ -82,7 +83,8 @@ var Home = function(opts) {
 			$sliders = this.opts.sliders,
 			$activeSlider = this.opts.activeSlider,
 			$activeItem = this.opts.activeItem,
-			$sliderElem = $homeSliderElem.find(".slider-item");
+			$sliderElemWrap = $homeSliderElem.find(".slider-items"),
+			$sliderElem = $sliderElemWrap.find(".slider-item");
 
 		if($sliderIndex > -1 &&  $sliderIndex < $sliders.length) {
 			$activeItem[$activeSlider] = $sliders[$activeSlider].get_index();
@@ -102,10 +104,16 @@ var Home = function(opts) {
 				moveTop += $sliderElem.eq(i).addClass("unvisible").outerHeight();
 			}
 
-			$homeSliderElem.css({transform: "translateY(-" + moveTop + "px)"});
+			$sliderElemWrap.css({transform: "translateY(-" + moveTop + "px)"});
 
 			// reset activated slider index
 			this.opts.activeSlider = $sliderIndex;
+
+			if($sliderIndex == 0) {
+				$homeSliderElem.addClass("focus-bg");
+			} else {
+				$homeSliderElem.removeClass("focus-bg");
+			}
 		}
 	};
 

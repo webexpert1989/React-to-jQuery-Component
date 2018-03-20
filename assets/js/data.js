@@ -1,6 +1,26 @@
 // Home Sliders Data
 var homeData = [
 	{
+		type : "main",
+		data : [
+			{
+				id   : 1282817,
+				thumb: "./assets/images/1282817-highlight.webp",
+				bg   : "./assets/images/1282817-main-bg.webp"
+			},
+			{
+				id   : 9000001,
+				thumb: "./assets/images/9000001-highlight.webp",
+				bg   : "./assets/images/9000001-main-bg.jpg"
+			},
+			{
+				id   : 1321119,
+				thumb: "./assets/images/1321119-highlight.webp",
+				bg   : "./assets/images/1321119-main-bg.webp"
+			}
+		]
+	},
+	{
 		type : "menu",
 		title: "",
 		count: false,
