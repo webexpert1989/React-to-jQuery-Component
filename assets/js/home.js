@@ -19,6 +19,7 @@ var Home = function(opts) {
 
 		// Class names as type
 		classes   : {
+			main    : "Main",
 			menu    : "Menu",
 			channels: "Channels",
 			series  : "Series",

@@ -274,7 +274,8 @@ var SliderView = function(opts) {
 
 			var moveTop = 0;
 			for(var i = 0; i < $sliderIndex; i++) {
-				moveTop += $sliderElem.eq(i).addClass("unvisible").outerHeight();
+				moveTop += 351; // $sliderElem.eq(i).outerHeight()
+				$sliderElem.eq(i).addClass("unvisible");console.log($sliderElem.eq(i).outerHeight())
 			}
 
 			$sliderWrap.css({transform: "translateY(-" + moveTop + "px)"});
@@ -445,11 +446,14 @@ var Slider = function(opts) {
 		}
 
 		this.opts.timer = setTimeout(function() {
-			var dateObj = opts.data[index].date? new Date(parseInt(opts.data[index].date)): new Date();
+			var title = opts.data[index].title.length > 24? opts.data[index].title.substring(0, 21) + "...": opts.data[index].title,
+				rating = opts.data[index].rating? opts.data[index].rating: 0,
+				dateObj = opts.data[index].date? new Date(parseInt(opts.data[index].date)): new Date();
+
 			opts.itemsDesc.html(
 				opts.tpl.contents
-					.replace(/##title##/g, opts.data[index].title)
-					.replace(/##rating##/g, opts.data[index].rating)
+					.replace(/##title##/g, title)
+					.replace(/##rating##/g, rating)
 					.replace(/##kind##/g, opts.data[index].kind)
 					.replace(/##issue##/g, opts.data[index].issue)
 					.replace(/##date##/g, dateObj.format_date("W D"))
